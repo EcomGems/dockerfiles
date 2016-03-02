@@ -27,10 +27,14 @@ RUN dnf --enablerepo=remi --enablerepo=remi-test -y install \
   php70-php-gd \
   php70-php-mbstring \
   php70-php-mcrypt \
+  php70-php-curl \
+  php70-php-soap \
+  php70-php-intl \
   php70-php-pecl-memcached \
   php70-php-mysqlnd \
   php70-php-pdo \
   php70-php-pgsql \
+  php70-php-xsl \
   php70-php-xml; \
   dnf clean all
 
@@ -42,9 +46,7 @@ RUN chmod -v +x /run-apache.sh
 ADD virtualhost.conf /etc/httpd/conf.d/virtualhost.conf
 
 # Create Apache test page
-WORKDIR /src
-RUN echo "<?php phpinfo();" > /src/index.php
-RUN rm -rf /var/www/html; ln -s /src /var/www/html
+WORKDIR /var/www/public
 
 # Done
 EXPOSE 80
