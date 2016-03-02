@@ -27,6 +27,7 @@ RUN dnf --enablerepo=remi --enablerepo=remi-test -y install \
   php70-php-gd \
   php70-php-mbstring \
   php70-php-mcrypt \
+  php70-php-mysql \
   php70-php-curl \
   php70-php-soap \
   php70-php-intl \
